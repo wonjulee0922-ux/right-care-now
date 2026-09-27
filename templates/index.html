@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Right Care Now</title>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="wrap">
+  <h1>Right Care Now</h1>
+  <p class="sub">Tell us what's happening and we'll suggest where to go — the ER,
+     urgent care, or a telehealth visit. This isn't a diagnosis, and when anything
+     is uncertain, we point you toward more care, not less.</p>
+
+  <form method="POST">
+
+    <div class="group red">
+      <h2>Are any of these happening right now?</h2>
+      <p class="hint">If yes to anything here, stop scrolling — go to the ER or call 911.</p>
+      <div class="list">
+        <label class="item"><input type="checkbox" name="symptom" value="red"> Chest pain or pressure, especially with sweating, nausea, or pain in the arm or jaw</label>
+        <label class="item"><input type="checkbox" name="symptom" value="red"> Trouble breathing or shortness of breath</label>
+        <label class="item"><input type="checkbox" name="symptom" value="red"> Sudden weakness, numbness, or drooping on one side, or slurred speech</label>
+        <label class="item"><input type="checkbox" name="symptom" value="red"> Heavy bleeding that won't stop</label>
+        <label class="item"><input type="checkbox" name="symptom" value="red"> Face, lip, or throat swelling, or trouble breathing after a sting/allergen/food</label>
+        <label class="item"><input type="checkbox" name="symptom" value="red"> Fainted, or a hard hit to the head with confusion or vomiting</label>
+        <label class="item"><input type="checkbox" name="symptom" value="red"> Fever with a stiff neck or a spreading rash</label>
+        <label class="item"><input type="checkbox" name="symptom" value="red"> Possible overdose or poisoning</label>
+      </div>
+    </div>
+
+    <div class="group crisis">
+      <label class="item"><input type="checkbox" name="self_harm" value="yes"> Thoughts of suicide or hurting myself</label>
+      <p class="hint">If you check this, you'll see crisis resources on the next screen —
+         and if you're in danger right now, call or text 988, or call 911.</p>
+    </div>
+
+    <div class="group amber">
+      <h2>Needs care today, but isn't life-threatening</h2>
+      <div class="list">
+        <label class="item"><input type="checkbox" name="symptom" value="amber"> Possible broken bone, or a sprain that won't bear weight</label>
+        <label class="item"><input type="checkbox" name="symptom" value="amber"> A cut that may need stitches</label>
+        <label class="item"><input type="checkbox" name="symptom" value="amber"> Fever that won't come down, with no stiff neck or rash</label>
+        <label class="item"><input type="checkbox" name="symptom" value="amber"> Vomiting or diarrhea with signs of dehydration</label>
+        <label class="item"><input type="checkbox" name="symptom" value="amber"> Ear or urinary pain that's gotten worse over days</label>
+        <label class="item"><input type="checkbox" name="symptom" value="amber"> A minor burn or a rash that's spreading</label>
+      </div>
+    </div>
+
+    <div class="group green">
+      <h2>Milder, everyday symptoms</h2>
+      <div class="list">
+        <label class="item"><input type="checkbox" name="symptom" value="green"> Cold, flu, or mild sore throat</label>
+        <label class="item"><input type="checkbox" name="symptom" value="green"> Mild aches, a headache, or seasonal allergies</label>
+        <label class="item"><input type="checkbox" name="symptom" value="green"> A medication refill or a question about a prescription</label>
+        <label class="item"><input type="checkbox" name="symptom" value="green"> A rash or minor irritation, not spreading, no fever</label>
+      </div>
+    </div>
+
+    <button class="primary" type="submit">Show my recommendation</button>
+  </form>
+</div>
+</body>
+</html>

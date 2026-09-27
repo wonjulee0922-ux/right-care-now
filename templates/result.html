@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Right Care Now — Recommendation</title>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="wrap">
+  <h1>Right Care Now</h1>
+
+  {% if self_harm %}
+  <div class="crisis-box show">
+    <h2>You don't have to handle this alone</h2>
+    <p>If you're thinking about suicide or hurting yourself, please reach out right now:</p>
+    <p>Call or text <span class="num">988</span> — Suicide & Crisis Lifeline, available 24/7</p>
+    <p>If you're in immediate danger, call <span class="num">911</span> or go to the nearest ER.</p>
+  </div>
+  {% endif %}
+
+  <div class="banner tier-{{ 'green' if tier == 'none' else tier }}">
+    <h2>{{ copy.title }}</h2>
+    <p>{{ copy.sub }}</p>
+    <p class="why">{{ copy.why }}</p>
+  </div>
+
+  {% if facilities %}
+  <table>
+    <thead><tr><th>Option</th><th class="num">Wait</th><th class="num">Distance</th></tr></thead>
+    <tbody>
+      {% for f in facilities %}
+      <tr><td>{{ f.name }}</td><td class="num">{{ f.wait }}</td><td class="num">{{ f.dist }}</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% endif %}
+
+  <p class="disclaimer"><strong>Demo data.</strong> Wait times and distances above are
+    simulated for this prototype — a live version would connect to hospitals' published
+    ED wait-time feeds and a maps API. This tool maps symptoms to a fixed,
+    clinician-reviewable severity checklist; it does not use a diagnostic model, and it
+    always resolves uncertainty toward more urgent care, not less. It is not a
+    substitute for professional medical judgment.</p>
+
+  <a href="/"><button class="secondary" type="button">Start over</button></a>
+</div>
+</body>
+</html>
